@@ -1,0 +1,19 @@
+# Exercice 1 
+ 
+1-lsblk 
+2- fdisk /dev/sdb ensuite
+ 2.1  n = nouvelle partition; type p; numero 1; taille +6G
+ 2.2 n pour le swap; typ p; numero 2; reste du disque 
+3- changement de type de la partition 2 
+ 3.1 t = change le type
+    2 numero de partition 
+   code 82 (swap linux)
+   w = ecrit les modification 
+4- verification avec lsblk /dev/sdb 
+5- Formatage des partitions en ext4 
+ 5.1 mkfs.ext4 -l DATA /dev/sdb1
+6- Partion SWAP 
+ 6.1mkswap -L SWAP /dev/sdb2
+7- Activer/desactiver les SWAP 
+ 7.1 swapon /dev/sdb2
+ 7.2 swapoff /dev/sda5 
