@@ -1,0 +1,48 @@
+#!/bin/bash 
+
+$1
+$2
+$3 
+
+# verification de la presence d'arguments 
+      # verifier que le nombre d'arguments est égal à 0
+    
+         # si le nombre d'argument est egal à 0 alors 
+    
+     # fin 
+
+    ## verification du nom de l'utilisateur 
+         # si le nom existe ; alors 
+
+    # fin 
+
+     # creation de l'utilisateur 
+       # si le nom est crée; alors
+
+
+    # si le nom n'est pas crée; alors 
+
+
+    
+    
+    # verification de la presence d'argument 
+    
+    if [$# -eq 0]; then
+    echo  Il manque les noms d'utilisateurs en argument - Fin du script
+    exit 1
+
+
+   # verification du nom de l'utilisateurs
+   
+    if id "$username" &>/dev/null; then
+        echo "L'utilisateur $username existe déjà"
+    else
+
+      # création de l'utilisateur
+    if useradd -m "$username" 2>/dev/null; then
+        # Succès de la création
+        echo "L'utilisateur $username a été créé"
+    else
+        # Échec de la création
+        echo "Erreur à la création de l'utilisateur $username" >&2
+    fi
